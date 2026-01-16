@@ -1,0 +1,96 @@
+---
+const figures = [
+  { value: '70,000', unit: 'sqm', label: 'Total Land', subtext: '17.3 acres' },
+  { value: '3,000+', unit: 'sqm', label: 'Built Area', subtext: '32,000+ sq ft' },
+  { value: '13', unit: '', label: 'Structures', subtext: 'Independent buildings' },
+  { value: '19', unit: '', label: 'Rooms', subtext: 'Across all structures' },
+  { value: '14', unit: '', label: 'Bathrooms', subtext: 'Showers and toilets' },
+  { value: '~80', unit: '', label: 'Max Guests', subtext: 'Current capacity' },
+];
+---
+
+<section class="key-figures">
+  <div class="container">
+    <h2 class="section-title text-center">The Numbers</h2>
+    <div class="figures-grid">
+      {figures.map((fig) => (
+        <div class="figure-card">
+          <span class="figure-value">
+            {fig.value}
+            {fig.unit && <span class="figure-unit">{fig.unit}</span>}
+          </span>
+          <span class="figure-label">{fig.label}</span>
+          <span class="figure-subtext">{fig.subtext}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .key-figures {
+    background: var(--color-bg);
+  }
+
+  .section-title {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .figures-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .figure-card {
+    background: var(--color-white);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .figure-value {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .figure-unit {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+  }
+
+  .figure-label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text);
+    margin-bottom: 0.25rem;
+  }
+
+  .figure-subtext {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  @media (min-width: 768px) {
+    .figures-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .figures-grid {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    .figure-card {
+      padding: var(--spacing-md) var(--spacing-sm);
+    }
+  }
+</style>

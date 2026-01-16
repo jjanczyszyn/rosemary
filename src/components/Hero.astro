@@ -1,0 +1,225 @@
+---
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<section class="hero" id="hero">
+  <div class="hero-video-container">
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster={`${baseUrl}og.jpg`}
+    >
+      <source src={`${baseUrl}media/video/hero.mp4`} type="video/mp4" />
+    </video>
+    <div class="hero-video-fallback">
+      <p>Add hero.mp4 to public/media/video/ for background video</p>
+    </div>
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="hero-content">
+    <p class="hero-tagline fade-in">Build the village. Surf every morning. Host the future.</p>
+    <h1 class="hero-title fade-in fade-in-delay-1">Rosemary Dream</h1>
+    <p class="hero-subtitle fade-in fade-in-delay-2">A ready-made village on a surf island</p>
+    <p class="hero-location fade-in fade-in-delay-2">Florianopolis, Brazil</p>
+    <p class="hero-price fade-in fade-in-delay-3">€1,890,000</p>
+    <p class="hero-thesis fade-in fade-in-delay-3">
+      Thirteen structures, 70,000 square meters of jungle hillside, above the ocean,
+      ready for your vision.
+    </p>
+    <div class="hero-cta fade-in fade-in-delay-3">
+      <a href="#contact" class="btn btn-primary btn-large">Request the Info Packet</a>
+      <a href="#gallery" class="btn btn-secondary btn-large">See the Property</a>
+    </div>
+  </div>
+
+  <a href="#about" class="hero-scroll" aria-label="Scroll down">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 5v14M19 12l-7 7-7-7"/>
+    </svg>
+  </a>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-video-fallback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #2d5a3d 0%, #1a3a28 50%, #0d1f14 100%);
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.9rem;
+  }
+
+  .hero-video:not([src=""]) + .hero-video-fallback {
+    display: none;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.2) 50%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    padding: 2rem;
+    max-width: 900px;
+  }
+
+  .hero-tagline {
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+  }
+
+  .hero-location {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-price {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-thesis {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+    opacity: 0.9;
+  }
+
+  .hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .hero-cta .btn-secondary {
+    border-color: white;
+    color: white;
+  }
+
+  .hero-cta .btn-secondary:hover {
+    background: white;
+    color: var(--color-accent);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    opacity: 0.7;
+    transition: opacity var(--transition);
+    animation: bounce 2s infinite;
+  }
+
+  .hero-scroll:hover {
+    opacity: 1;
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    40% {
+      transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+      transform: translateX(-50%) translateY(-5px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-cta {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-cta .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+</style>
+
+<script>
+  // Hide fallback if video loads
+  const video = document.querySelector('.hero-video') as HTMLVideoElement;
+  const fallback = document.querySelector('.hero-video-fallback') as HTMLElement;
+
+  if (video && fallback) {
+    video.addEventListener('loadeddata', () => {
+      fallback.style.display = 'none';
+    });
+
+    video.addEventListener('error', () => {
+      fallback.style.display = 'flex';
+    });
+  }
+</script>

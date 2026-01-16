@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Hero from '../components/Hero.astro';
+import BayAreaTranslation from '../components/BayAreaTranslation.astro';
+import KeyFigures from '../components/KeyFigures.astro';
+import Vision from '../components/Vision.astro';
+import MultiUse from '../components/MultiUse.astro';
+import Location from '../components/Location.astro';
+import Lifestyle from '../components/Lifestyle.astro';
+import Gallery from '../components/Gallery.astro';
+import VideoTour from '../components/VideoTour.astro';
+import Investment from '../components/Investment.astro';
+import Residency from '../components/Residency.astro';
+import Process from '../components/Process.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Navigation />
+
+  <main>
+    <!-- 1. Hero -->
+    <Hero />
+
+    <!-- 2. Bay Area Translation -->
+    <BayAreaTranslation />
+
+    <!-- 3. Key Figures -->
+    <KeyFigures />
+
+    <!-- 4. The Vision: Chosen-Family Village -->
+    <Vision />
+
+    <!-- 5. Multi-use Potential -->
+    <MultiUse />
+
+    <!-- 6. Location Advantage -->
+    <Location />
+
+    <!-- 7. Lifestyle and Culture -->
+    <Lifestyle />
+
+    <!-- 8. Photo Gallery -->
+    <Gallery />
+
+    <!-- 9. Video Tour -->
+    <VideoTour />
+
+    <!-- 10. Investment Context -->
+    <Investment />
+
+    <!-- 11. Residency Pathways -->
+    <Residency />
+
+    <!-- 12. Process and Next Steps -->
+    <Process />
+
+    <!-- 13. Final CTA -->
+    <ContactCTA />
+  </main>
+
+  <!-- 14. Footer -->
+  <Footer />
+</Layout>
+
+<style is:global>
+  /* Smooth scroll offset for fixed nav */
+  html {
+    scroll-padding-top: 80px;
+  }
+
+  /* Skip to content link for accessibility */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-accent);
+    color: white;
+    padding: 8px;
+    z-index: 1000;
+  }
+
+  .skip-link:focus {
+    top: 0;
+  }
+</style>

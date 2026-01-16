@@ -1,0 +1,138 @@
+---
+const lanes = [
+  {
+    title: 'Permaculture & Regeneration',
+    icon: '🌱',
+    description: 'The land is zoned and suited for agricultural and regenerative projects. Start a food forest, host permaculture courses, or build a model for sustainable living in the tropics.',
+    possibilities: [
+      'Agroforestry and food production',
+      'Permaculture design courses',
+      'Regenerative agriculture research',
+      'Carbon sequestration projects'
+    ]
+  },
+  {
+    title: 'Hospitality & Retreats',
+    icon: '🏡',
+    description: 'Thirteen structures, nineteen rooms, capacity for eighty. Run it as a boutique hotel, an Airbnb portfolio, or a retreat center for wellness, creativity, or executive offsites.',
+    possibilities: [
+      'Boutique eco-hotel',
+      'Multi-listing Airbnb operation',
+      'Wellness and yoga retreats',
+      'Corporate offsite venue'
+    ]
+  },
+  {
+    title: 'Community & Co-living',
+    icon: '🤝',
+    description: 'The compound layout naturally supports shared living. Independent units around common spaces. A ready infrastructure for chosen family, artist residencies, or a membership community.',
+    possibilities: [
+      'Intentional community',
+      'Artist or creator residency',
+      'Co-living membership model',
+      'Seasonal community gatherings'
+    ]
+  }
+];
+---
+
+<section class="multi-use">
+  <div class="container">
+    <h2 class="section-title text-center">Three Paths, One Property</h2>
+    <p class="lead text-center text-muted">
+      The distinct topographical zones allow you to run multiple projects simultaneously,
+      or focus on the one that fits your vision.
+    </p>
+
+    <div class="lanes-grid">
+      {lanes.map((lane) => (
+        <div class="lane-card">
+          <span class="lane-icon">{lane.icon}</span>
+          <h3 class="lane-title">{lane.title}</h3>
+          <p class="lane-description">{lane.description}</p>
+          <ul class="lane-possibilities">
+            {lane.possibilities.map((p) => (
+              <li>{p}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <p class="multi-use-note text-center text-muted">
+      Extensive additional buildable area means your vision can grow.
+      The infrastructure is here. The permits allow expansion.
+    </p>
+  </div>
+</section>
+
+<style>
+  .multi-use {
+    background: var(--color-bg);
+  }
+
+  .section-title {
+    margin-bottom: 0.5rem;
+  }
+
+  .lead {
+    max-width: 700px;
+    margin: 0 auto var(--spacing-lg);
+  }
+
+  .lanes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .lane-card {
+    background: var(--color-white);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .lane-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .lane-title {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .lane-description {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .lane-possibilities {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .lane-possibilities li {
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    padding: 0.25rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .lane-possibilities li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+  }
+
+  .multi-use-note {
+    font-style: italic;
+  }
+</style>

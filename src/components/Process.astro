@@ -1,0 +1,150 @@
+---
+const baseUrl = import.meta.env.BASE_URL;
+
+const steps = [
+  {
+    number: '01',
+    title: 'Request the Info Packet',
+    description: 'Get the detailed property documentation: legal status, zoning, structures inventory, photos, financials, and due diligence checklist.'
+  },
+  {
+    number: '02',
+    title: 'Initial Conversation',
+    description: 'We schedule a call to answer your questions, understand your vision, and discuss the property in depth. No pressure, just information.'
+  },
+  {
+    number: '03',
+    title: 'Virtual or In-Person Tour',
+    description: 'Walk the property with us. See the structures, the land, the views. Feel the energy of the place. We can do this remotely or you can visit in person.'
+  },
+  {
+    number: '04',
+    title: 'Due Diligence',
+    description: 'Engage your own lawyers and advisors. We provide full transparency on documentation. Take the time you need to verify everything.'
+  },
+  {
+    number: '05',
+    title: 'Make an Offer',
+    description: 'When you are ready, submit a formal offer. We work with you on terms that make sense for both parties.'
+  },
+  {
+    number: '06',
+    title: 'Close and Begin',
+    description: 'Complete the transaction with professional support. Then: build the village, surf every morning, host the future.'
+  }
+];
+---
+
+<section class="process" id="process">
+  <div class="container">
+    <h2 class="section-title text-center">The Process</h2>
+    <p class="lead text-center text-muted">
+      Clear steps from curiosity to keys.
+    </p>
+
+    <div class="steps-grid">
+      {steps.map((step) => (
+        <div class="step-card">
+          <span class="step-number">{step.number}</span>
+          <h3 class="step-title">{step.title}</h3>
+          <p class="step-description">{step.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="process-cta text-center">
+      <p class="process-cta-text">Ready to start?</p>
+      <div class="process-cta-buttons">
+        <a href={`${baseUrl}docs/rosemary-dream-info-packet.pdf`} class="btn btn-primary btn-large" download>
+          Download Info Packet
+        </a>
+        <a href="#contact" class="btn btn-secondary btn-large">
+          Book a Tour
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .process {
+    background: var(--color-white);
+  }
+
+  .section-title {
+    margin-bottom: 0.5rem;
+  }
+
+  .lead {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .step-card {
+    position: relative;
+    padding: var(--spacing-md);
+    padding-top: calc(var(--spacing-md) + 1rem);
+    background: var(--color-bg);
+    border-radius: 8px;
+  }
+
+  .step-number {
+    position: absolute;
+    top: -0.5rem;
+    left: var(--spacing-md);
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--color-accent);
+    opacity: 0.3;
+    font-weight: 500;
+  }
+
+  .step-title {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-description {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .process-cta {
+    background: var(--color-accent-light);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+  }
+
+  .process-cta-text {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .process-cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    .process-cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .process-cta-buttons .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+</style>

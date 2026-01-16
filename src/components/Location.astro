@@ -1,0 +1,95 @@
+---
+const advantages = [
+  {
+    title: 'Above the Surf',
+    description: 'World-class surf breaks within about 15 minutes, depending on the break and conditions. Wake up, check the swell, and be in the water before most people finish breakfast.'
+  },
+  {
+    title: 'Below the Mountains',
+    description: 'Hiking trails lead directly from the property into preserved Atlantic Forest. Waterfalls, viewpoints, and biodiversity that rivals the Amazon.'
+  },
+  {
+    title: 'Minutes from the City',
+    description: 'Florianopolis offers urban services, international restaurants, quality healthcare, and a growing tech scene. The quiet of nature with civilization nearby.'
+  },
+  {
+    title: 'Connected to the World',
+    description: 'The international airport (FLN) is roughly 40 minutes away. A quick hop to Sao Paulo (GRU), then onward to anywhere. Fastest nonstop: around 1 hour 10 minutes.'
+  }
+];
+---
+
+<section class="location">
+  <div class="container">
+    <h2 class="section-title text-center">Location Advantage</h2>
+    <p class="lead text-center text-muted">
+      Florianopolis is an island. The property sits on the edge, where jungle meets ocean.
+    </p>
+
+    <div class="advantages-grid">
+      {advantages.map((adv) => (
+        <div class="advantage-card">
+          <h3 class="advantage-title">{adv.title}</h3>
+          <p class="advantage-description">{adv.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="location-map-placeholder">
+      <p>Map placeholder: Add an embedded map or static image showing the property location relative to key points (beach, airport, city center).</p>
+      <p class="text-muted" style="font-size: 0.85rem; margin-top: 0.5rem;">
+        <!-- TODO: Replace with actual coordinates -->
+        Coordinates: Approximately -27.6°, -48.5° (See Info Packet for exact location)
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .location {
+    background: var(--color-white);
+  }
+
+  .section-title {
+    margin-bottom: 0.5rem;
+  }
+
+  .lead {
+    max-width: 600px;
+    margin: 0 auto var(--spacing-lg);
+  }
+
+  .advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .advantage-card {
+    padding: var(--spacing-md);
+    border-left: 3px solid var(--color-accent);
+    background: var(--color-bg);
+  }
+
+  .advantage-title {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .advantage-description {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .location-map-placeholder {
+    background: var(--color-bg);
+    border: 2px dashed var(--color-border);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    text-align: center;
+    color: var(--color-text-muted);
+  }
+</style>

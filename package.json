@@ -1,0 +1,15 @@
+{
+  "name": "rosemary",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "build:manifest": "node scripts/build-media-manifest.mjs",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.16.10"
+  }
+}

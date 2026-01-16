@@ -1,0 +1,259 @@
+---
+const baseUrl = import.meta.env.BASE_URL;
+
+// TODO: Replace with actual email and Formspree endpoint
+const contactEmail = 'hello@rosemarydream.com';
+const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORM_ID';
+---
+
+<section class="contact-cta" id="contact">
+  <div class="container container-narrow">
+    <h2 class="section-title text-center">Take the Next Step</h2>
+    <p class="lead text-center">
+      Build the village. Surf every morning. Host the future.
+    </p>
+
+    <div class="contact-options">
+      <div class="contact-form-container">
+        <h3>Request Information</h3>
+        <form
+          class="contact-form"
+          action={formspreeEndpoint}
+          method="POST"
+          id="contact-form"
+        >
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="interest">I am interested in</label>
+            <select id="interest" name="interest" required>
+              <option value="">Select one...</option>
+              <option value="info-packet">Receiving the Info Packet</option>
+              <option value="virtual-tour">Booking a Virtual Tour</option>
+              <option value="in-person-tour">Booking an In-Person Tour</option>
+              <option value="investment">Discussing Investment Details</option>
+              <option value="other">Something Else</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message (optional)</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+          </div>
+
+          <input type="hidden" name="_subject" value="Rosemary Dream Inquiry" />
+
+          <button type="submit" class="btn btn-primary btn-large form-submit">
+            Send Request
+          </button>
+        </form>
+
+        <div class="form-success" id="form-success">
+          <p>Thank you for your interest. We will be in touch soon.</p>
+        </div>
+      </div>
+
+      <div class="contact-direct">
+        <h3>Or Reach Out Directly</h3>
+        <p>
+          Prefer email? Send us a message and we will respond within 24 hours.
+        </p>
+        <a href={`mailto:${contactEmail}?subject=Rosemary Dream Inquiry`} class="btn btn-secondary btn-large">
+          Email Us
+        </a>
+
+        <div class="contact-download">
+          <p>Want to review the details first?</p>
+          <a href={`${baseUrl}docs/rosemary-dream-info-packet.pdf`} class="download-link" download>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Download the Information Packet (PDF)
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-cta {
+    background: var(--color-accent);
+    color: white;
+  }
+
+  .section-title {
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .lead {
+    color: rgba(255, 255, 255, 0.9);
+    font-family: var(--font-serif);
+    font-style: italic;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .contact-options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  @media (min-width: 768px) {
+    .contact-options {
+      grid-template-columns: 1.2fr 1fr;
+      align-items: start;
+    }
+  }
+
+  .contact-form-container h3,
+  .contact-direct h3 {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-md);
+    color: white;
+  }
+
+  /* Form styles */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    background: white;
+    color: var(--color-text);
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+  }
+
+  .form-submit {
+    margin-top: var(--spacing-sm);
+    background: white;
+    color: var(--color-accent);
+  }
+
+  .form-submit:hover {
+    background: var(--color-bg);
+  }
+
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+
+  .form-success.show {
+    display: block;
+  }
+
+  /* Direct contact */
+  .contact-direct p {
+    opacity: 0.9;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .contact-direct .btn-secondary {
+    border-color: white;
+    color: white;
+    width: 100%;
+  }
+
+  .contact-direct .btn-secondary:hover {
+    background: white;
+    color: var(--color-accent);
+  }
+
+  .contact-download {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .contact-download p {
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .download-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .download-link:hover {
+    color: rgba(255, 255, 255, 0.8);
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const success = document.getElementById('form-success');
+
+  if (form && success) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          form.style.display = 'none';
+          success.classList.add('show');
+        } else {
+          alert('There was an error. Please try again or email us directly.');
+        }
+      } catch {
+        alert('There was an error. Please try again or email us directly.');
+      }
+    });
+  }
+</script>

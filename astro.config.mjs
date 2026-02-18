@@ -3,8 +3,8 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://jjanczyszyn.github.io',
-  base: '/rosemary',
+  site: 'https://rosemary.queenvibes.com',
+  base: '/',
   build: {
     assets: 'assets'
   }

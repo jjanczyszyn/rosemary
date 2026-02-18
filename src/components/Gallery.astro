@@ -78,18 +78,18 @@ try {
   }
 
   .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: var(--spacing-sm);
+    columns: 3;
+    column-gap: var(--spacing-sm);
     margin-bottom: var(--spacing-md);
   }
 
   .gallery-item {
+    break-inside: avoid;
+    margin-bottom: var(--spacing-sm);
     position: relative;
-    aspect-ratio: 4/3;
     overflow: hidden;
     border-radius: 4px;
-    cursor: pointer;
+    cursor: zoom-in;
     border: none;
     padding: 0;
     background: var(--color-bg);
@@ -97,13 +97,15 @@ try {
 
   .gallery-item img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+    transform-origin: center center;
   }
 
   .gallery-item:hover img {
-    transform: scale(1.05);
+    transform: scale(1.5);
   }
 
   .gallery-placeholder {
@@ -206,7 +208,7 @@ try {
 
   @media (max-width: 768px) {
     .gallery-grid {
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      columns: 2;
     }
 
     .lightbox-prev,

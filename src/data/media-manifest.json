@@ -1,4 +1,26 @@
 {
-  "photos": [],
-  "videos": []
+  "photos": [
+    "1.jpg",
+    "2.jpeg",
+    "3.jpeg",
+    "4.jpeg",
+    "5.jpeg",
+    "6.jpeg",
+    "7.jpeg",
+    "WhatsApp Image 2026-02-14 at 16.24.35 (1).jpeg",
+    "WhatsApp Image 2026-02-14 at 16.24.35.jpeg",
+    "WhatsApp Image 2026-02-14 at 16.24.36 (3).jpeg",
+    "WhatsApp Image 2026-02-14 at 16.24.36 (4).jpeg",
+    "WhatsApp Image 2026-02-14 at 16.24.36.jpeg",
+    "WhatsApp Image 2026-02-14 at 16.24.37 (3).jpeg",
+    "WhatsApp Image 2026-02-14 at 16.24.37 (5).jpeg",
+    "WhatsApp Image 2026-02-14 at 16.24.37 (6).jpeg",
+    "WhatsApp Image 2026-02-14 at 16.24.38 (3).jpeg",
+    "WhatsApp Image 2026-02-14 at 16.24.38 (4).jpeg"
+  ],
+  "videos": [
+    "island-voice.mp4",
+    "Rosemary-background.mp4"
+  ],
+  "generatedAt": "2026-02-18T19:46:31.796Z"
 }

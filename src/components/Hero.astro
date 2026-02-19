@@ -1,5 +1,23 @@
 ---
 const baseUrl = import.meta.env.BASE_URL;
+
+/*
+  HERO COPY - VARIANT A (live)
+  ============================
+  Tagline:   Co-invest in a jungle village above the surf.
+  Title:     Rosemary Dream
+  Subtitle:  Equity in a place built for builders, makers, and mission-driven people.
+  CTA 1:     Request the Investor Deck
+  CTA 2:     See the Village Season
+
+  HERO COPY - VARIANT B (swap in to test)
+  =========================================
+  Tagline:   Own a stake. Belong to a village. Change what work feels like.
+  Title:     Rosemary Dream
+  Subtitle:  A co-investment in land, community, and a seasonal village on a surf island.
+  CTA 1:     Join the Investor Circle
+  CTA 2:     Explore the Property
+*/
 ---
 
 <section class="hero" id="hero">
@@ -21,19 +39,34 @@ const baseUrl = import.meta.env.BASE_URL;
   </div>
 
   <div class="hero-content">
-    <p class="hero-tagline fade-in">Build the village. Surf every morning. Host the future.</p>
+    <!-- VARIANT A: active -->
+    <p class="hero-tagline fade-in">Co-invest in a jungle village above the surf.</p>
     <h1 class="hero-title fade-in fade-in-delay-1">Rosemary Dream</h1>
-    <p class="hero-subtitle fade-in fade-in-delay-2">A ready-made village on a surf island</p>
-    <p class="hero-location fade-in fade-in-delay-2">Florianopolis, Brazil</p>
-    <p class="hero-price fade-in fade-in-delay-3">€1,890,000</p>
+    <p class="hero-subtitle fade-in fade-in-delay-2">Equity in a place built for builders, makers, and mission-driven people.</p>
+    <p class="hero-location fade-in fade-in-delay-2">Florianópolis, Brazil</p>
     <p class="hero-thesis fade-in fade-in-delay-3">
-      Thirteen structures, 70,000 square meters of jungle hillside, above the ocean,
-      ready for your vision.
+      Thirteen structures. 70,000 square meters of jungle hillside above the ocean.
+      A seasonal village of aligned people doing meaningful work.
     </p>
     <div class="hero-cta fade-in fade-in-delay-3">
-      <a href="#contact" class="btn btn-primary btn-large">Request the Info Packet</a>
-      <a href="#gallery" class="btn btn-secondary btn-large">See the Property</a>
+      <a href="#contact" class="btn btn-primary btn-large">Request the Investor Deck</a>
+      <a href="#village" class="btn btn-secondary btn-large">See the Village Season</a>
     </div>
+
+    <!-- VARIANT B: swap these lines in and comment out Variant A above to test
+    <p class="hero-tagline fade-in">Own a stake. Belong to a village. Change what work feels like.</p>
+    <h1 class="hero-title fade-in fade-in-delay-1">Rosemary Dream</h1>
+    <p class="hero-subtitle fade-in fade-in-delay-2">A co-investment in land, community, and a seasonal village on a surf island.</p>
+    <p class="hero-location fade-in fade-in-delay-2">Florianópolis, Brazil</p>
+    <p class="hero-thesis fade-in fade-in-delay-3">
+      Thirteen structures. Over 90% of the land conserved. Monkeys visit the terrace in the morning.
+      The ocean is fifteen minutes away.
+    </p>
+    <div class="hero-cta fade-in fade-in-delay-3">
+      <a href="#contact" class="btn btn-primary btn-large">Join the Investor Circle</a>
+      <a href="#gallery" class="btn btn-secondary btn-large">Explore the Property</a>
+    </div>
+    -->
   </div>
 
   <a href="#about" class="hero-scroll" aria-label="Scroll down">
@@ -134,12 +167,6 @@ const baseUrl = import.meta.env.BASE_URL;
   .hero-location {
     font-size: 1rem;
     opacity: 0.8;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-price {
-    font-family: var(--font-serif);
-    font-size: clamp(1.5rem, 3vw, 2rem);
     margin-bottom: 1.5rem;
   }
 

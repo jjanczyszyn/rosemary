@@ -1,54 +1,64 @@
 ---
 ---
 
-<section class="bay-area" id="about">
+<section class="what-it-is" id="about">
   <div class="container container-narrow">
-    <h2 class="section-title text-center">For Bay Area Minds</h2>
+    <h2 class="section-title text-center">What Rosemary Dream Is</h2>
     <p class="lead text-center text-muted">
-      Let us translate this property into familiar terms.
+      A co-investment opportunity shaped by three commitments.
     </p>
 
-    <div class="translation-grid">
-      <div class="translation-card">
-        <span class="translation-label">Land</span>
-        <span class="translation-value">~70,000 sqm</span>
-        <span class="translation-context">17.3 acres, about 13 American football fields</span>
-      </div>
-
-      <div class="translation-card">
-        <span class="translation-label">Built Area</span>
-        <span class="translation-value">3,000+ sqm</span>
-        <span class="translation-context">32,000+ sq ft across 13 structures</span>
-      </div>
-
-      <div class="translation-card">
-        <span class="translation-label">Price</span>
-        <span class="translation-value">€1,890,000</span>
-        <span class="translation-context">Less than a 2BR in the Mission</span>
-      </div>
-
-      <div class="translation-card">
-        <span class="translation-label">What You Get</span>
-        <span class="translation-value">A village</span>
-        <span class="translation-context">Jungle canopy, ocean views, buildable land</span>
-      </div>
+    <div class="overview-narrative">
+      <p>
+        Rosemary Dream is a 70,000-square-meter property on the jungle hillside of
+        Florianópolis, Brazil. We are inviting a small group of aligned investors to
+        co-own it together, build it out over time, and activate it as a living, working
+        village and hospitality destination.
+      </p>
+      <p>
+        The main value here is not only financial. It is relational and mission-driven.
+        You are not buying into a passive vehicle. You are becoming a steward of a place
+        with genuine community, a conservation commitment, and a specific vision for
+        how people can work and live well together.
+      </p>
     </div>
 
-    <div class="translation-narrative">
-      <p>
-        In the Bay Area, €1.89M buys you a modest single-family home, maybe with a view
-        if you are lucky. Here, that same capital acquires a compound: thirteen independent
-        buildings on a jungle hillside, above the surf, minutes from an international airport.
-      </p>
-      <p>
-        This is not a compromise. It is an arbitrage on quality of life.
-      </p>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <span class="pillar-icon">🌿</span>
+        <h3 class="pillar-title">Conservation-First Land</h3>
+        <p class="pillar-description">
+          Over 90% of the land is intended for conservation. Trails run through Atlantic
+          Forest, past waterfalls, and through to the ocean on the other side of the ridge.
+          This land is held as stewardship, not development.
+        </p>
+      </div>
+
+      <div class="pillar-card">
+        <span class="pillar-icon">🏘️</span>
+        <h3 class="pillar-title">Seasonal Village of Impact</h3>
+        <p class="pillar-description">
+          Three months per year, typically December through February, the property runs as
+          a gathering of aligned individuals working on projects that matter. Structured,
+          purposeful, and genuinely alive.
+        </p>
+      </div>
+
+      <div class="pillar-card">
+        <span class="pillar-icon">🌊</span>
+        <h3 class="pillar-title">Year-Round Hospitality, Retreats, and Residencies</h3>
+        <p class="pillar-description">
+          The rest of the year, the property earns through curated hospitality stays,
+          focused retreats, and impact residencies centered on human and environmental
+          flourishing.
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  .bay-area {
+  .what-it-is {
     background: var(--color-white);
   }
 
@@ -60,55 +70,45 @@
     margin-bottom: var(--spacing-lg);
   }
 
-  .translation-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-lg);
+  .overview-narrative {
+    max-width: 650px;
+    margin: 0 auto var(--spacing-lg);
+    text-align: center;
   }
 
-  .translation-card {
+  .overview-narrative p {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .pillar-card {
     background: var(--color-bg);
     padding: var(--spacing-md);
     border-radius: 8px;
-    text-align: center;
   }
 
-  .translation-label {
+  .pillar-icon {
+    font-size: 2rem;
     display: block;
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.5rem;
-  }
-
-  .translation-value {
-    display: block;
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    color: var(--color-accent);
-    margin-bottom: 0.5rem;
-  }
-
-  .translation-context {
-    display: block;
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-  }
-
-  .translation-narrative {
-    max-width: 650px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .translation-narrative p {
     margin-bottom: var(--spacing-sm);
   }
 
-  .translation-narrative p:last-child {
-    font-style: italic;
-    color: var(--color-accent);
+  .pillar-title {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .pillar-description {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    margin: 0;
   }
 </style>

@@ -1,45 +1,57 @@
 ---
-const advantages = [
+const activities = [
   {
-    title: 'Above the Surf',
-    description: 'World-class surf breaks within about 15 minutes, depending on the break and conditions. Wake up, check the swell, and be in the water before most people finish breakfast.'
+    title: 'Surf and Ocean',
+    description: 'World-class surf breaks within about 15 minutes, depending on conditions. Kayaking, stand-up paddling, beach volleyball, and open-water swimming are part of daily life here.'
   },
   {
-    title: 'Below the Mountains',
-    description: 'Hiking trails lead directly from the property into preserved Atlantic Forest. Waterfalls, viewpoints, and biodiversity that rivals the Amazon.'
+    title: 'Mountains and Jungle',
+    description: 'Hiking trails lead from the property through Atlantic Forest to waterfalls, mountain summits, and ocean overlooks on the other side of the ridge. The trails begin at your door.'
   },
   {
-    title: 'Minutes from the City',
-    description: 'Florianopolis offers urban services, international restaurants, quality healthcare, and a growing tech scene. The quiet of nature with civilization nearby.'
+    title: 'Digital Nomad Community',
+    description: 'Florianópolis is widely regarded as one of Brazil\'s leading destinations for digital nomads and remote workers. Founders and builders from across the world choose it for the quality of life paired with reliable infrastructure.'
   },
   {
-    title: 'Connected to the World',
-    description: 'The international airport (FLN) is roughly 40 minutes away. A quick hop to Sao Paulo (GRU), then onward to anywhere. Fastest nonstop: around 1 hour 10 minutes.'
+    title: 'Internationally Connected',
+    description: 'Florianópolis International Airport (FLN) is roughly 40 minutes away. Direct flights connect to São Paulo (GRU) and onward to Europe, North America, and beyond.'
+  },
+  {
+    title: 'Safe and Livable',
+    description: 'Santa Catarina state is commonly cited among Brazil\'s more livable and lower-risk regions. We encourage all visitors to check current travel advisories as part of their personal due diligence. This is context, not a guarantee.'
+  },
+  {
+    title: 'Southern Hemisphere Summer',
+    description: 'When northern winters arrive, it is warm and bright here. December through March is peak season: warm water, long days, lush jungle, and the best surf conditions of the year.'
+  },
+  {
+    title: 'Embodiment and Culture',
+    description: 'The local community is active in yoga, breathwork, contact improvisation, and ecstatic dance. Ecstatic dance is hosted at the venue as part of the regular programming. You will hear Portuguese, English, Spanish, and more.'
   }
 ];
 ---
 
-<section class="location">
+<section class="location" id="location">
   <div class="container">
-    <h2 class="section-title text-center">Location Advantage</h2>
+    <h2 class="section-title text-center">Florianópolis: Nature, Culture, and Access</h2>
     <p class="lead text-center text-muted">
-      Florianopolis is an island. The property sits on the edge, where jungle meets ocean.
+      An island known internationally as a hub for digital nomads, surfers, and people
+      who want a different kind of life.
     </p>
 
     <div class="advantages-grid">
-      {advantages.map((adv) => (
+      {activities.map((item) => (
         <div class="advantage-card">
-          <h3 class="advantage-title">{adv.title}</h3>
-          <p class="advantage-description">{adv.description}</p>
+          <h3 class="advantage-title">{item.title}</h3>
+          <p class="advantage-description">{item.description}</p>
         </div>
       ))}
     </div>
 
     <div class="location-map-placeholder">
-      <p>Map placeholder: Add an embedded map or static image showing the property location relative to key points (beach, airport, city center).</p>
+      <p>Map: Rosemary Dream on the jungle hillside of Florianópolis, Brazil</p>
       <p class="text-muted" style="font-size: 0.85rem; margin-top: 0.5rem;">
-        <!-- TODO: Replace with actual coordinates -->
-        Coordinates: Approximately -27.6°, -48.5° (See Info Packet for exact location)
+        Coordinates: Approximately -27.6°, -48.5° (see the Investor Deck for exact location)
       </p>
     </div>
   </div>
@@ -55,7 +67,7 @@ const advantages = [
   }
 
   .lead {
-    max-width: 600px;
+    max-width: 640px;
     margin: 0 auto var(--spacing-lg);
   }
 

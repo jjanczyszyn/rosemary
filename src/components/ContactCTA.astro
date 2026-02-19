@@ -8,14 +8,23 @@ const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORM_ID';
 
 <section class="contact-cta" id="contact">
   <div class="container container-narrow">
-    <h2 class="section-title text-center">Take the Next Step</h2>
+    <h2 class="section-title text-center">Build Something Real</h2>
     <p class="lead text-center">
-      Build the village. Surf every morning. Host the future.
+      If you want a place to build, belong, and steward something that matters,
+      this is the invitation.
     </p>
+
+    <div class="contact-fit-note text-center">
+      <p>
+        We are looking for a small number of investors who are aligned with the
+        mission, not only the financial case. Capacity in the investor circle is
+        limited to maintain community quality. This is not artificial scarcity.
+      </p>
+    </div>
 
     <div class="contact-options">
       <div class="contact-form-container">
-        <h3>Request Information</h3>
+        <h3>Request the Investor Deck</h3>
         <form
           class="contact-form"
           action={formspreeEndpoint}
@@ -36,10 +45,10 @@ const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORM_ID';
             <label for="interest">I am interested in</label>
             <select id="interest" name="interest" required>
               <option value="">Select one...</option>
-              <option value="info-packet">Receiving the Info Packet</option>
+              <option value="investor-deck">Receiving the Investor Deck</option>
               <option value="virtual-tour">Booking a Virtual Tour</option>
-              <option value="in-person-tour">Booking an In-Person Tour</option>
-              <option value="investment">Discussing Investment Details</option>
+              <option value="in-person-visit">Planning an In-Person Visit</option>
+              <option value="village-season">Learning About the Village Season</option>
               <option value="other">Something Else</option>
             </select>
           </div>
@@ -49,7 +58,7 @@ const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORM_ID';
             <textarea id="message" name="message" rows="4"></textarea>
           </div>
 
-          <input type="hidden" name="_subject" value="Rosemary Dream Inquiry" />
+          <input type="hidden" name="_subject" value="Rosemary Dream Investor Inquiry" />
 
           <button type="submit" class="btn btn-primary btn-large form-submit">
             Send Request
@@ -57,31 +66,56 @@ const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORM_ID';
         </form>
 
         <div class="form-success" id="form-success">
-          <p>Thank you for your interest. We will be in touch soon.</p>
+          <p>Thank you for your interest. We will be in touch within 48 hours.</p>
         </div>
       </div>
 
       <div class="contact-direct">
         <h3>Or Reach Out Directly</h3>
         <p>
-          Prefer email? Send us a message and we will respond within 24 hours.
+          Prefer email? Send us a message and we will respond within 48 hours.
         </p>
-        <a href={`mailto:${contactEmail}?subject=Rosemary Dream Inquiry`} class="btn btn-secondary btn-large">
-          Email Us
+        <a href={`mailto:${contactEmail}?subject=Rosemary Dream Investor Inquiry`} class="btn btn-secondary btn-large">
+          [EMAIL_OR_FORM_URL]
         </a>
 
         <div class="contact-download">
-          <p>Want to review the details first?</p>
+          <p>Want to review the property details first?</p>
           <a href={`${baseUrl}docs/rosemary-dream-info-packet.pdf`} class="download-link" download>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
               <polyline points="7 10 12 15 17 10" />
               <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
-            Download the Information Packet (PDF)
+            Download the Property Info Packet (PDF)
+          </a>
+        </div>
+
+        <div class="contact-deck-link">
+          <p>Ready for the full investment picture?</p>
+          <a href="[LINK_TO_INVESTOR_DECK]" class="download-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+            </svg>
+            View the Investor Deck
           </a>
         </div>
       </div>
+    </div>
+
+    <div class="legal-disclosure">
+      <h4>Legal Disclosure</h4>
+      <p>
+        This website is for informational purposes only. Nothing here constitutes a
+        solicitation to invest, an offer of securities, or a guarantee of any financial
+        return. All investment details, legal structure, and terms are subject to final
+        legal documentation and local regulations. Rosemary Dream is not a registered
+        investment advisor. This is not a public offering. Prospective investors should
+        conduct independent due diligence and consult qualified legal and financial
+        advisors before making any decision. Past performance of any comparable property
+        or market is not indicative of future results. [LEGAL_STRUCTURE_PLACEHOLDER]
+      </p>
     </div>
   </div>
 </section>
@@ -101,13 +135,24 @@ const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORM_ID';
     color: rgba(255, 255, 255, 0.9);
     font-family: var(--font-serif);
     font-style: italic;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .contact-fit-note {
+    max-width: 580px;
+    margin: 0 auto var(--spacing-lg);
+  }
+
+  .contact-fit-note p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
   }
 
   .contact-options {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
   }
 
   @media (min-width: 768px) {
@@ -194,6 +239,7 @@ const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORM_ID';
     border-color: white;
     color: white;
     width: 100%;
+    margin-bottom: var(--spacing-md);
   }
 
   .contact-direct .btn-secondary:hover {
@@ -201,13 +247,15 @@ const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORM_ID';
     color: var(--color-accent);
   }
 
-  .contact-download {
-    margin-top: var(--spacing-lg);
+  .contact-download,
+  .contact-deck-link {
     padding-top: var(--spacing-md);
     border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: var(--spacing-sm);
   }
 
-  .contact-download p {
+  .contact-download p,
+  .contact-deck-link p {
     font-size: 0.9rem;
     margin-bottom: var(--spacing-sm);
   }
@@ -223,6 +271,29 @@ const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORM_ID';
 
   .download-link:hover {
     color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Legal disclosure */
+  .legal-disclosure {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+  }
+
+  .legal-disclosure h4 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+  }
+
+  .legal-disclosure p {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    line-height: 1.6;
+    margin: 0;
   }
 </style>
 

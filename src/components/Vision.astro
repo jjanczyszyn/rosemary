@@ -1,48 +1,70 @@
 ---
 ---
 
-<section class="vision">
+<section class="village-season" id="village">
   <div class="container container-narrow">
-    <h2 class="section-title text-center">The Village Life</h2>
+    <h2 class="section-title text-center">The Village Season</h2>
     <p class="lead text-center text-muted">
-      Picture your days here.
+      Three months per year. A real container with rhythm, not a festival.
     </p>
 
-    <div class="vision-narrative">
+    <div class="season-intro">
       <p>
-        You wake to birdsong filtering through jungle canopy. The air is warm, thick
-        with salt and green. Your morning ritual: coffee on the terrace, a quick
-        check of the surf from above, then barefoot down the path to the water.
+        Every December through February, southern hemisphere summer, Rosemary Dream runs
+        as a village gathering. A curated group of builders, founders, artists, researchers,
+        and community-minded people converge for a season of deep work, shared life, and
+        mutual support. The days have structure. The structure creates freedom.
       </p>
+    </div>
 
+    <div class="rhythm-grid">
+      <div class="rhythm-block">
+        <h3 class="rhythm-time">Mornings</h3>
+        <p class="rhythm-label">Movement, Ocean, Breath, Strength</p>
+        <p class="rhythm-description">
+          Daily movement classes, surf sessions on world-class breaks,
+          jungle hikes, and morning breathwork. The day begins in the body.
+          Howler monkeys move through the canopy above the terrace.
+          Salt air. Green light. Strong coffee.
+        </p>
+      </div>
+
+      <div class="rhythm-block">
+        <h3 class="rhythm-time">Midday</h3>
+        <p class="rhythm-label">Deep Work, Structured Coworking, Goal Setting</p>
+        <p class="rhythm-description">
+          People have real projects here. The space holds focus. Structured
+          coworking blocks, shared goal-setting rituals, and accountability
+          partnerships. You make more progress in a week here than in a month
+          of scattered solo work back home.
+        </p>
+      </div>
+
+      <div class="rhythm-block">
+        <h3 class="rhythm-time">Evenings</h3>
+        <p class="rhythm-label">Authentic Relating, Shared Meals, Creative Play</p>
+        <p class="rhythm-description">
+          Long communal tables. Conversations that go where they need to go.
+          Salons, ecstatic dance hosted at the venue, music, creative play.
+          Authentic relating practices that build the kind of trust you cannot
+          manufacture in a Slack channel.
+        </p>
+      </div>
+    </div>
+
+    <div class="season-promise">
       <p>
-        By midmorning you are back at the compound. Your partners are on calls in
-        one building while the kitchen team preps lunch in another. A visiting
-        artist works in the studio space. Someone is hosting a small group for
-        breathwork in the garden.
-      </p>
-
-      <p>
-        Lunch is communal, always. Long table, mismatched chairs, the kind of meal
-        that stretches into the afternoon because the conversation is too good to leave.
-      </p>
-
-      <p>
-        This is not a retreat center, though it could be one. It is not a hotel,
-        though you could run one. It is not a commune, though community forms
-        naturally here. It is a platform: a collection of spaces ready to hold
-        whatever vision you bring.
-      </p>
-
-      <p class="vision-tagline">
-        Build the village. Surf every morning. Host the future.
+        The core promise: belonging, purpose, shared creativity, and real momentum
+        on meaningful work. This is not a networking event. It is a village.
+        The people you meet here become long-term collaborators, friends, and
+        co-conspirators in building a better way to work and live.
       </p>
     </div>
   </div>
 </section>
 
 <style>
-  .vision {
+  .village-season {
     background: var(--color-white);
   }
 
@@ -54,23 +76,68 @@
     margin-bottom: var(--spacing-lg);
   }
 
-  .vision-narrative {
+  .season-intro {
+    max-width: 650px;
+    margin: 0 auto var(--spacing-lg);
+    text-align: center;
+  }
+
+  .season-intro p {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .rhythm-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .rhythm-block {
+    background: var(--color-bg);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    border-top: 3px solid var(--color-accent);
+  }
+
+  .rhythm-time {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    color: var(--color-accent);
+    margin-bottom: 0.25rem;
+  }
+
+  .rhythm-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .rhythm-description {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  .season-promise {
     max-width: 650px;
     margin: 0 auto;
-  }
-
-  .vision-narrative p {
-    margin-bottom: var(--spacing-md);
-    font-size: 1.1rem;
-  }
-
-  .vision-tagline {
     text-align: center;
-    font-family: var(--font-serif);
-    font-size: 1.4rem !important;
-    color: var(--color-accent);
-    font-style: italic;
     padding-top: var(--spacing-md);
     border-top: 1px solid var(--color-border);
+  }
+
+  .season-promise p {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    color: var(--color-accent);
+    font-style: italic;
+    margin: 0;
+    line-height: 1.8;
   }
 </style>

@@ -1,73 +1,84 @@
 ---
-const lanes = [
-  {
-    title: 'Permaculture & Regeneration',
-    icon: '🌱',
-    description: 'The land is zoned and suited for agricultural and regenerative projects. Start a food forest, host permaculture courses, or build a model for sustainable living in the tropics.',
-    possibilities: [
-      'Agroforestry and food production',
-      'Permaculture design courses',
-      'Regenerative agriculture research',
-      'Carbon sequestration projects'
-    ]
-  },
-  {
-    title: 'Hospitality & Retreats',
-    icon: '🏡',
-    description: 'Thirteen structures, nineteen rooms, capacity for eighty. Run it as a boutique hotel, an Airbnb portfolio, or a retreat center for wellness, creativity, or executive offsites.',
-    possibilities: [
-      'Boutique eco-hotel',
-      'Multi-listing Airbnb operation',
-      'Wellness and yoga retreats',
-      'Corporate offsite venue'
-    ]
-  },
-  {
-    title: 'Community & Co-living',
-    icon: '🤝',
-    description: 'The compound layout naturally supports shared living. Independent units around common spaces. A ready infrastructure for chosen family, artist residencies, or a membership community.',
-    possibilities: [
-      'Intentional community',
-      'Artist or creator residency',
-      'Co-living membership model',
-      'Seasonal community gatherings'
-    ]
-  }
-];
 ---
 
-<section class="multi-use">
-  <div class="container">
-    <h2 class="section-title text-center">Three Paths, One Property</h2>
+<section class="how-it-works" id="how-it-works">
+  <div class="container container-narrow">
+    <h2 class="section-title text-center">How the Investment Works</h2>
     <p class="lead text-center text-muted">
-      The distinct topographical zones allow you to run multiple projects simultaneously,
-      or focus on the one that fits your vision.
+      Simple mechanics. No promises. Full transparency.
     </p>
 
-    <div class="lanes-grid">
-      {lanes.map((lane) => (
-        <div class="lane-card">
-          <span class="lane-icon">{lane.icon}</span>
-          <h3 class="lane-title">{lane.title}</h3>
-          <p class="lane-description">{lane.description}</p>
-          <ul class="lane-possibilities">
-            {lane.possibilities.map((p) => (
-              <li>{p}</li>
-            ))}
-          </ul>
+    <div class="steps-list">
+      <div class="step-item">
+        <span class="step-num">01</span>
+        <div class="step-content">
+          <h3>Invest together as aligned stewards</h3>
+          <p>
+            A small group of investors co-acquires ownership of the property. We are
+            looking for people who are drawn to the mission and the community, not only
+            the financial case. The legal structure, minimum investment, and ownership
+            mechanics are defined in the investor agreement.
+            [LEGAL_STRUCTURE_PLACEHOLDER]
+          </p>
         </div>
-      ))}
+      </div>
+
+      <div class="step-item">
+        <span class="step-num">02</span>
+        <div class="step-content">
+          <h3>Years 1 to 5: reinvest and build</h3>
+          <p>
+            During the first five years, operating income from the property is targeted
+            to be reinvested into upgrades, infrastructure, land stewardship, and guest
+            experience. The aim is to increase the property's long-term value before any
+            income is distributed to investors. This is the designed intention, subject
+            to final legal documentation and actual operating conditions.
+          </p>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <span class="step-num">03</span>
+        <div class="step-content">
+          <h3>Investor priority during the village season</h3>
+          <p>
+            Investors receive priority access to reserve stays for up to 4 months per
+            year, typically during the peak village season from December through April.
+            The priority booking window opens first for investors. Any remaining
+            availability then opens to the broader community. Exact reservation rules
+            will be defined in the investor agreement. [RESERVATION_RULES_PLACEHOLDER]
+          </p>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <span class="step-num">04</span>
+        <div class="step-content">
+          <h3>Long-term value from land, brand, and community</h3>
+          <p>
+            The long-term value of this investment is designed to come from three
+            sources: the land and its location in Florianópolis, improved revenue
+            capacity as the property is developed, and the gravity of a real community
+            and brand. None of this is guaranteed. Real estate involves risk.
+          </p>
+        </div>
+      </div>
     </div>
 
-    <p class="multi-use-note text-center text-muted">
-      Extensive additional buildable area means your vision can grow.
-      The infrastructure is here. The permits allow expansion.
-    </p>
+    <div class="investment-disclaimer">
+      <p>
+        <strong>Disclosure:</strong> Not investment advice. Details are subject to legal
+        documentation and local regulations. Real estate values can decrease. Operating
+        businesses can underperform. Regulatory environments change. Currency fluctuations
+        affect the value of your investment in your home currency. Always conduct independent
+        due diligence with qualified legal and financial advisors before making any decision.
+      </p>
+    </div>
   </div>
 </section>
 
 <style>
-  .multi-use {
+  .how-it-works {
     background: var(--color-bg);
   }
 
@@ -76,63 +87,64 @@ const lanes = [
   }
 
   .lead {
-    max-width: 700px;
-    margin: 0 auto var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
   }
 
-  .lanes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  .steps-list {
+    display: flex;
+    flex-direction: column;
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
   }
 
-  .lane-card {
+  .step-item {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: var(--spacing-sm);
+    align-items: start;
     background: var(--color-white);
     padding: var(--spacing-md);
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   }
 
-  .lane-icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .lane-title {
+  .step-num {
     font-family: var(--font-serif);
-    font-size: 1.3rem;
-    margin-bottom: var(--spacing-sm);
+    font-size: 2rem;
+    color: var(--color-accent);
+    opacity: 0.35;
+    font-weight: 500;
+    line-height: 1;
+    padding-top: 0.2rem;
   }
 
-  .lane-description {
+  .step-content h3 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-content p {
     color: var(--color-text-muted);
     font-size: 0.95rem;
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .lane-possibilities {
-    list-style: none;
-    padding: 0;
     margin: 0;
+    line-height: 1.7;
   }
 
-  .lane-possibilities li {
+  .investment-disclaimer {
+    background: var(--color-white);
+    padding: var(--spacing-md);
+    border-radius: 4px;
+    border-left: 3px solid var(--color-accent);
+  }
+
+  .investment-disclaimer p {
     font-size: 0.9rem;
-    color: var(--color-accent);
-    padding: 0.25rem 0;
-    padding-left: 1.25rem;
-    position: relative;
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: 1.7;
   }
 
-  .lane-possibilities li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-  }
-
-  .multi-use-note {
-    font-style: italic;
+  .investment-disclaimer strong {
+    color: var(--color-text);
   }
 </style>

@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- Replace favicon with a plant sprig (rosemary) in the brand green badge, replacing the previous "R" monogram.
+
 ### Added
 - **Server-side contact form.** The "Send Request" form now emails the inquiry
   directly to `hello@justinalydia.com` instead of opening the visitor's mail

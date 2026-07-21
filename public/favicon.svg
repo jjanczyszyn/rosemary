@@ -1,10 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <defs>
     <linearGradient id="leaf" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#2d5a3d"/>
-      <stop offset="100%" style="stop-color:#1a3a28"/>
+      <stop offset="0%" stop-color="#2d5a3d"/>
+      <stop offset="100%" stop-color="#1a3a28"/>
     </linearGradient>
   </defs>
   <circle cx="50" cy="50" r="45" fill="url(#leaf)"/>
-  <text x="50" y="65" font-family="Georgia, serif" font-size="40" fill="white" text-anchor="middle">R</text>
+  <g fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- stem -->
+    <path d="M50 78 C 50 62 50 46 50 30"/>
+    <!-- leaf pairs -->
+    <path d="M50 62 C 40 60 33 53 32 44 C 42 45 49 51 50 60"/>
+    <path d="M50 62 C 60 60 67 53 68 44 C 58 45 51 51 50 60"/>
+    <path d="M50 50 C 41 48 35 42 34 34 C 43 35 49 40 50 48"/>
+    <path d="M50 50 C 59 48 65 42 66 34 C 57 35 51 40 50 48"/>
+    <!-- top sprout -->
+    <path d="M50 34 C 45 30 43 24 44 18 C 49 21 51 26 50 32"/>
+    <path d="M50 34 C 55 30 57 24 56 18 C 51 21 49 26 50 32"/>
+  </g>
 </svg>

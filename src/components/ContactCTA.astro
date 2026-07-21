@@ -1,9 +1,7 @@
 ---
 const baseUrl = import.meta.env.BASE_URL;
 
-// TODO: Replace with actual email and Formspree endpoint
-const contactEmail = 'hello@rosemarydream.com';
-const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORM_ID';
+const contactEmail = 'hello@justinalydia.com';
 ---
 
 <section class="contact-cta" id="contact">
@@ -27,8 +25,6 @@ const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORM_ID';
         <h3>Request the Investor Deck</h3>
         <form
           class="contact-form"
-          action={formspreeEndpoint}
-          method="POST"
           id="contact-form"
         >
           <div class="form-group">
@@ -76,18 +72,19 @@ const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORM_ID';
           Prefer email? Send us a message and we will respond within 48 hours.
         </p>
         <a href={`mailto:${contactEmail}?subject=Rosemary Dream Investor Inquiry`} class="btn btn-secondary btn-large">
-          [EMAIL_OR_FORM_URL]
+          {contactEmail}
         </a>
 
         <div class="contact-download">
           <p>Want to review the property details first?</p>
-          <a href={`${baseUrl}docs/rosemary-dream-info-packet.pdf`} class="download-link" download>
+          <a href="https://docs.google.com/document/d/1aaB4tGA4yIxTO7PtIJrOrrPHNhBcXPG3X2FilwcLgvk/edit?usp=sharing" class="download-link" target="_blank" rel="noopener">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
             </svg>
-            Download the Property Info Packet (PDF)
+            View the Property Info Packet
           </a>
         </div>
 
@@ -297,34 +294,46 @@ const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORM_ID';
   }
 </style>
 
-<script>
-  const form = document.getElementById('contact-form') as HTMLFormElement;
+<script define:vars={{ contactEmail }}>
+  const form = document.getElementById('contact-form');
   const success = document.getElementById('form-success');
 
+  const interestLabels = {
+    'investor-deck': 'Receiving the Investor Deck',
+    'virtual-tour': 'Booking a Virtual Tour',
+    'in-person-visit': 'Planning an In-Person Visit',
+    'village-season': 'Learning About the Village Season',
+    'other': 'Something Else',
+  };
+
   if (form && success) {
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const formData = new FormData(form);
+      const data = new FormData(form);
+      const name = (data.get('name') || '').toString().trim();
+      const email = (data.get('email') || '').toString().trim();
+      const interest = (data.get('interest') || '').toString();
+      const message = (data.get('message') || '').toString().trim();
 
-      try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'Accept': 'application/json'
-          }
-        });
+      const bodyLines = [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Interested in: ${interestLabels[interest] || interest}`,
+        '',
+        message ? `Message:\n${message}` : 'Message: (none)',
+      ];
 
-        if (response.ok) {
-          form.style.display = 'none';
-          success.classList.add('show');
-        } else {
-          alert('There was an error. Please try again or email us directly.');
-        }
-      } catch {
-        alert('There was an error. Please try again or email us directly.');
-      }
+      const mailto =
+        `mailto:${contactEmail}` +
+        `?subject=${encodeURIComponent('Rosemary Dream Investor Inquiry')}` +
+        `&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+
+      // Open the visitor's email client with the request pre-filled to us.
+      window.location.href = mailto;
+
+      form.style.display = 'none';
+      success.classList.add('show');
     });
   }
 </script>

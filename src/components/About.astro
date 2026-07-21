@@ -1,0 +1,120 @@
+---
+const baseUrl = import.meta.env.BASE_URL;
+
+const portrait = `${baseUrl}media/about/justina-lydia.webp`;
+const siteUrl = 'https://justinalydia.com';
+---
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo-wrap">
+        <img
+          src={portrait}
+          alt="Justina Lydia, founder of Rosemary Dream"
+          class="about-photo"
+          width="900"
+          height="497"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="about-body">
+        <p class="about-eyebrow">The person behind this</p>
+        <h2 class="section-title">Hi, I'm Justina Lydia</h2>
+        <p class="about-lead">
+          I've been a digital nomad since 2016, building communities around the
+          world — turning strangers into collaborators and empty rooms into
+          places people don't want to leave.
+        </p>
+        <p class="about-text">
+          I speak fluent Portuguese, spent a year living in Brazil, and have
+          called Rosemary Dream home twice. This isn't a listing I stumbled
+          onto — it's a place I've lived, loved, and know down to the sound of
+          the monkeys on the terrace at dawn. I'm inviting a small circle of
+          aligned people to help steward it into something lasting.
+        </p>
+        <a href={siteUrl} target="_blank" rel="noopener" class="about-link">
+          More about my work at justinalydia.com
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="7" y1="17" x2="17" y2="7" />
+            <polyline points="7 7 17 7 17 17" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    background: var(--color-bg);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .about-grid {
+      grid-template-columns: 5fr 6fr;
+      gap: var(--spacing-xl);
+    }
+  }
+
+  .about-photo-wrap {
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--color-white);
+  }
+
+  .about-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .about-eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .about-lead {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .about-text {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .about-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--color-accent);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--transition);
+  }
+
+  .about-link:hover {
+    border-bottom-color: var(--color-accent);
+  }
+</style>

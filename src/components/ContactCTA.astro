@@ -87,17 +87,6 @@ const contactEmail = 'hello@justinalydia.com';
             View the Property Info Packet
           </a>
         </div>
-
-        <div class="contact-deck-link">
-          <p>Ready for the full investment picture?</p>
-          <a href="[LINK_TO_INVESTOR_DECK]" class="download-link">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-              <polyline points="14 2 14 8 20 8" />
-            </svg>
-            View the Investor Deck
-          </a>
-        </div>
       </div>
     </div>
 
@@ -111,7 +100,7 @@ const contactEmail = 'hello@justinalydia.com';
         investment advisor. This is not a public offering. Prospective investors should
         conduct independent due diligence and consult qualified legal and financial
         advisors before making any decision. Past performance of any comparable property
-        or market is not indicative of future results. [LEGAL_STRUCTURE_PLACEHOLDER]
+        or market is not indicative of future results.
       </p>
     </div>
   </div>
@@ -298,42 +287,45 @@ const contactEmail = 'hello@justinalydia.com';
   const form = document.getElementById('contact-form');
   const success = document.getElementById('form-success');
 
-  const interestLabels = {
-    'investor-deck': 'Receiving the Investor Deck',
-    'virtual-tour': 'Booking a Virtual Tour',
-    'in-person-visit': 'Planning an In-Person Visit',
-    'village-season': 'Learning About the Village Season',
-    'other': 'Something Else',
-  };
+  // Convex HTTP action that sends the inquiry email server-side (via Resend).
+  const ENDPOINT = 'https://moonlit-loris-768.convex.site/sendInquiry';
 
   if (form && success) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
+      const submitBtn = form.querySelector('.form-submit');
       const data = new FormData(form);
-      const name = (data.get('name') || '').toString().trim();
-      const email = (data.get('email') || '').toString().trim();
-      const interest = (data.get('interest') || '').toString();
-      const message = (data.get('message') || '').toString().trim();
+      const payload = {
+        name: (data.get('name') || '').toString().trim(),
+        email: (data.get('email') || '').toString().trim(),
+        interest: (data.get('interest') || '').toString(),
+        message: (data.get('message') || '').toString().trim(),
+      };
 
-      const bodyLines = [
-        `Name: ${name}`,
-        `Email: ${email}`,
-        `Interested in: ${interestLabels[interest] || interest}`,
-        '',
-        message ? `Message:\n${message}` : 'Message: (none)',
-      ];
+      const originalLabel = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+      }
 
-      const mailto =
-        `mailto:${contactEmail}` +
-        `?subject=${encodeURIComponent('Rosemary Dream Investor Inquiry')}` +
-        `&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+      try {
+        const res = await fetch(ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) throw new Error('Request failed');
 
-      // Open the visitor's email client with the request pre-filled to us.
-      window.location.href = mailto;
-
-      form.style.display = 'none';
-      success.classList.add('show');
+        form.style.display = 'none';
+        success.classList.add('show');
+      } catch {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalLabel;
+        }
+        alert(`Sorry, something went wrong sending your request. Please email us directly at ${contactEmail}.`);
+      }
     });
   }
 </script>

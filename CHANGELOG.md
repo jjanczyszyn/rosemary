@@ -2,6 +2,20 @@
 
 ## [Unreleased]
 
+### Added
+- **Server-side contact form.** The "Send Request" form now emails the inquiry
+  directly to `hello@justinalydia.com` instead of opening the visitor's mail
+  client. Backed by a Convex HTTP action (`convex/http.ts`,
+  `POST /sendInquiry`) that sends via Resend (from a verified `popoyo.co`
+  sender, with the visitor's address as reply-to). README documents the
+  architecture, service, and $0 cost.
+
+### Removed
+- Dead **"View the Investor Deck"** link and all `[…_PLACEHOLDER]` bracket
+  tokens across Contact, Residency, MultiUse, and Investment sections.
+
+## [0.1.0]
+
 ### Changed
 - **Info packet** now links to the shared Google Doc instead of the bundled PDF (Process and Contact sections). Links open in a new tab.
 - **Contact** updated throughout to `hello@justinalydia.com` (contact form, direct-email button, footer). The "Send Request" form now composes a pre-filled email to that address, with a link to `justinalydia.com` added to the footer.

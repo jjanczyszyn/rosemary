@@ -68,9 +68,56 @@ export default defineConfig({
 
 ### Contact Information
 
-Update these files with your actual contact details:
-- `src/components/ContactCTA.astro` - email and Formspree endpoint
-- `src/components/Footer.astro` - contact email
+Contact email is `hello@justinalydia.com`, set in:
+- `src/components/ContactCTA.astro` — form, direct-email button, and the Convex endpoint the form POSTs to
+- `src/components/Footer.astro` — contact email and `justinalydia.com` link
+
+## Architecture
+
+The site itself is a static Astro build hosted on **GitHub Pages**. The only
+dynamic piece is the contact form, which sends an email server-side so visitors
+never have to open their own mail client.
+
+```mermaid
+flowchart LR
+  visitor([Visitor]) -->|fills form| site[Astro static site\nGitHub Pages]
+  site -->|POST /sendInquiry JSON| convex[Convex HTTP action\nmoonlit-loris-768.convex.site]
+  convex -->|Resend API| resend[Resend]
+  resend -->|email| inbox[hello@justinalydia.com]
+```
+
+### Contact form backend (Convex + Resend)
+
+- **Convex project:** `rosemary` (deployment `moonlit-loris-768`).
+- **Function:** `convex/http.ts` exposes an HTTP action at
+  `POST /sendInquiry`. It validates the payload, then sends the inquiry via the
+  Resend API to `hello@justinalydia.com` with the visitor's address as
+  `reply_to`. CORS is open (`*`) since it's a public form that only ever emails
+  the owner.
+- **Sender:** `rosemary@popoyo.co` (a domain already verified in Resend).
+- **No database tables / schema** — this deployment runs a single stateless
+  HTTP action; there is no Convex data model to document.
+- **Secrets:** `RESEND_API_KEY` is stored as a Convex environment variable
+  (`npx convex env set RESEND_API_KEY …`), never committed.
+
+Deploy the backend (uses `CONVEX_TEAM_ACCESS_TOKEN` from `~/.claude/settings.json`):
+
+```bash
+CONVEX_OVERRIDE_ACCESS_TOKEN=$CONVEX_TEAM_ACCESS_TOKEN \
+CONVEX_DEPLOYMENT=prod:moonlit-loris-768 \
+npx convex deploy -y
+```
+
+### Cost
+
+| Service | Plan | Cost |
+|---|---|---|
+| GitHub Pages | Public repo | Free |
+| Convex | Free tier (well under 1M function calls/mo) | $0 |
+| Resend | Free tier (3,000 emails/mo, 100/day) | $0 |
+
+Expected running cost for this site is **$0/month** at contact-form volumes. A
+custom domain (if used) is the only potential cost, billed by the registrar.
 
 ## Deploy to GitHub Pages
 
@@ -174,16 +221,11 @@ Key property facts are in these components:
 
 ## TODO
 
-Before launch, update these placeholders:
+Remaining before launch:
 
-- [ ] `astro.config.mjs` - site URL
-- [ ] `src/components/ContactCTA.astro` - email, Formspree endpoint
-- [ ] `src/components/Footer.astro` - contact email
-- [ ] `src/components/Location.astro` - map/coordinates
-- [ ] `public/og.jpg` - social preview image
-- [ ] `public/docs/rosemary-dream-info-packet.pdf` - actual info packet
-- [ ] `public/media/photos/` - property photos
-- [ ] `public/media/video/hero.mp4` - hero video
+- [ ] `public/og.jpg` — real 1200x630 social preview image (currently a placeholder)
+- [ ] Point the `rosemary.queenvibes.com` custom domain at GitHub Pages via DNS,
+      or remove `public/CNAME` to use the plain `*.github.io` URL
 
 ## License
 
